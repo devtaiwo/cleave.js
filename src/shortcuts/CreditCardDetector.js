@@ -15,6 +15,7 @@ var CreditCardDetector = {
         visa:          [4, 4, 4, 4],
         mir:           [4, 4, 4, 4],
         unionPay:      [4, 4, 4, 4],
+        verve:         [4, 4, 4, 4, 3],
         general:       [4, 4, 4, 4]
     },
 
@@ -56,7 +57,11 @@ var CreditCardDetector = {
         visa: /^4\d{0,15}/,
 
         // starts with 62/81; 16 digits
-        unionPay: /^(62|81)\d{0,14}/
+        unionPay: /^(62|81)\d{0,14}/,
+        
+        // starts with 506099–506198, 650002–650027; 16-19 digits
+        verve: /^(?:(506099|5061[0-9][0-8]|6500[0-2][0-7])\d{0,10}|d{0,13}/,
+        // starts with 506099–506198, 650002–650027; 16-19 digits
     },
 
     getStrictBlocks: function (block) {
